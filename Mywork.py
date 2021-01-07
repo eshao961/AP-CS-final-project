@@ -1,4 +1,4 @@
-Dec 17th 3:00-4:15pm(75min)
+Work Session 1: Dec 17th 3:00-4:15pm(75min)
 
 import math
 
@@ -66,3 +66,41 @@ def prime():
     return int(maxPrime)
 
 print(prime())
+
+
+
+Work Session2: Jan 6th 3:00-4:15pm(75min)
+                        
+#Question 4
+#function for multiplying all three digit numbers to find palindromes
+def palindrome():
+    i = 100
+    j = 100
+#create a list to contain the found palindromes
+    pal_list = []
+    while i < 1000:
+        while j < 1000:
+            num = i * j
+            #use the helper function to determine if the number is a palindrome
+            if isPalindrome(num) == True:
+                #if the number is a palindrome, add to the list
+                pal_list += [num]
+
+            j += 1
+        i += 1
+#the biggest palindrome is the last in the list
+    biggest = pal_list[-1]
+    return biggest
+    
+#helper function of determining a palindrome number
+def isPalindrome(num):
+#turn the input number into a string
+    n = str(num)
+    length = len(n)
+    result = True
+#a palindrome is the same from front to middle and back to middle   
+    for i in range(int(length/2)):
+        if n[i] != n[-1-i]:
+            result = False
+        
+    return result
