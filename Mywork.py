@@ -104,3 +104,38 @@ def isPalindrome(num):
             result = False
         
     return result
+
+
+Work Session 3: Jan10th 7:00-8:20pm (80min)
+           
+ #Question5
+#Helper function for checking divisions
+def smallest_multiples(num):
+    variable=0
+    n=num
+#check if the number n can be evenly divided by numbers from 11 to 20
+    for i in range(10):
+        if n%(i+11)==0:
+            variable=variable+1
+    #if all ten numbers can be divided, return true
+    if variable==10:
+        return True
+    else:
+        return False
+
+#main function for looping through all possible numbers
+def is_smallest(num):
+    List=[]
+    product=1
+#find the range of possible numbers by multiplying all numbers from 11 to 20
+    for i in range(10):
+        product=product*(i+11)
+#use the product of 11 to 20 as the range of the loop
+    for n in (product):
+#Use helper function to check if the number can be evenly divided by numbers from 11 to 20
+        if smallest_multiples(n)==True:
+            #if it can be evenly divided by all numbers, add to the List
+            List+=n
+#find the smallest number in the list
+    smallest=min(List)
+    return smallest
