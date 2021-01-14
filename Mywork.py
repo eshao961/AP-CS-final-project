@@ -139,3 +139,56 @@ def is_smallest(num):
 #find the smallest number in the list
     smallest=min(List)
     return smallest
+
+
+Work Session 4:Jan14th 3:00pm-4:20pm (80min)
+  #Question 6
+#function for finding sum of squares
+def sum1(num):
+    sum_square=0
+#Use for loop to add up the sum of squares
+    for i in range(num):
+        sum_square+=(i+1)**2
+    return sum_square
+#function for finding the square of sums
+def sum2(num):
+#equation for finding the sum of numbers
+    sum=((1+num)*num)/2
+#square the sum of numbers
+    square_sum=(sum)**2
+    return square_sum
+#Finding the sum square difference 
+difference=sum2(100)-sum1(100)
+print(difference)
+
+
+#Question 7
+#helper function  for finding prime number 
+def primenumber(n):
+    count = 0
+    for i in range(2, n):
+        #the number is not a prime number if it can be evenly divided by numbers that are not 1
+        if n%i == 0:
+        #therefore it returns false the loop ends 
+            return False
+            break
+        else:
+        #count refcords the count of number that cannot be divided
+            count += 1
+#the number is  prime number if it cannot be divided by any number besides 1 and itself 
+    if count == n-2:
+        return True
+
+#Function for finding the value of the given nth term  
+def find_term(n):
+    x = 0
+    count = 0
+#the loop ends when the given nth term is reached 
+    while count != n:
+        #use while loop to check if number is prime number starting from 1
+        x += 1
+        if primenumber(x) == True:
+            count += 1
+    print(x)
+#call on the function to find the 10001th term number
+find_term(10001)
