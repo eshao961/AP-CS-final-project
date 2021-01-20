@@ -197,7 +197,7 @@ find_term(10001)
 
 Work Session 5: Jan17 8:00pm-8:45pm (45min)
            
- #Question 8
+#Question 8
 #save the numbers as a string
 s = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450"
 #create a variable largest
@@ -216,3 +216,53 @@ for i in range(0, len(s) - 13 + 1):
 
 #print the largest product
 print (largest)
+
+
+Work Session 6: Jan 20th 8:00pm-9:00pm(60min)
+            
+ #Question 9
+#Set a biggest possible range for a, since a cannot be bigger than 1000 due to the equation
+for a in range(1, 1000):
+    #similarly, set a biggest possible range for b
+        for b in range(1, 1000):
+        
+          #represent c with a and b 
+            c = (1000 - a) - b
+        
+            # According to the instructions, each number must be smaller than the next
+            if a < b < c:
+            
+                # check if the second equation is met
+                if a**2 + b**2 == c**2:
+                
+                    # If all conditions above are met, the proeduct of a,b,c is calculated
+                    print(a * b * c)
+            
+#Question 10
+#helper function for finding prime numbers
+def prime(num):
+    #prime numbers cannot be even numbers
+    if num > 2 and num % 2 == 0:
+        return False
+    #use loop to check if the number can be divided by any numbers smaller than its square root
+    else:
+        for i in range(3, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                return False
+    #if not it is a prime number
+    return True
+
+#function for adding up all prime numbers found using helper function
+def add(num):
+    list = 0
+    #for numbers in range,if it is a prime number, then it is added to the list
+    for i in range(2, num):
+        if prime(i):
+            list=list+i
+#the list is the sum of all prie numbers    
+    return list
+
+# Print the sum of all primes below two million
+print(add(2000000))
+
+
